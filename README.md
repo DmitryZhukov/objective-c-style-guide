@@ -2,6 +2,7 @@
 
 ### Table of Contents
 
+* [Общее](#общее)
 * [Example](#example)
 * [Language](#language)
 * [Code Organization](#code-organization)
