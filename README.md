@@ -48,6 +48,7 @@
 * В коде не допустимо использование прямого использования названия идентификатора ячейки, контроллера, перехода и тд. Даже если оно используется один раз. (static const *)
 * Использование макросов необходимо объединять в одном месте, не разбрасывать по функциям. Лучше объявить все константы в одном define в начале кода, чем в каждом методе. С осторожностью (по возможности вообще не использовать) вложенные define, особенно, когда ветвится большой кусок кода.
 
+[Back to Table of Contents ](#table-of-contents)
 ## Example 
 
 They say an example is worth a thousand words, so let's start off with an
@@ -210,7 +211,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [App Programming Guide for tvOS](https://developer.apple.com/library/content/documentation/General/Conceptual/AppleTV_PG/)
 * [View Controller Programming Guide for iOS](https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/)
 
-
+[Back to Table of Contents ](#table-of-contents)
 ## Language
 
 US English should be used.
@@ -225,7 +226,7 @@ UIColor *myColor = [UIColor whiteColor];
 UIColor *myColour = [UIColor whiteColor];
 ```
 
-
+[Back to Table of Contents ](#table-of-contents)
 ## Code Organization
 
 Use `#pragma mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
@@ -269,7 +270,7 @@ Use `#pragma mark -` to categorize methods in functional groupings and protocol/
 
 - (NSString *)description {}
 ```
-
+[Back to Table of Contents ](#table-of-contents)
 ## Spacing
 
 * Indent using 4 spaces (this conserves space in print and makes line wrapping less likely). Never indent with tabs. Be sure to set this preference in Xcode.
@@ -326,13 +327,14 @@ Use `#pragma mark -` to categorize methods in functional groupings and protocol/
                      // something
                  }];
 ```
-
+[Back to Table of Contents ](#table-of-contents)
 ## Comments
 
 When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. *Exception: This does not apply to those comments used to generate documentation.*
 
+[Back to Table of Contents ](#table-of-contents)
 ## Naming
 
 [Apple naming conventions](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingMethods.html#//apple_ref/doc/uid/20001282-BCIGIJJF) should be adhered to wherever possible, especially those related to [memory management rules](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
@@ -389,6 +391,7 @@ An exception to this: inside initializers, the backing instance variable (i.e. _
 
 Local variables should not contain underscores.
 
+[Back to Table of Contents ](#table-of-contents)
 ## Methods
 
 In method signatures, there should be a space after the method type (-/+ symbol). There should be a space between the method segments (matching Apple's style).  Always include a keyword and be descriptive with the word before the argument which describes the argument.
@@ -413,6 +416,7 @@ The usage of the word "and" is reserved.  It should not be used for multiple par
 - (instancetype)initWith:(int)width and:(int)height;  // Never do this.
 ```
 
+[Back to Table of Contents ](#table-of-contents)
 ## Variables
 
 Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for()` loops.
@@ -441,7 +445,7 @@ Direct access to instance variables that 'back' properties should be avoided exc
 }
 ```
 
-
+[Back to Table of Contents ](#table-of-contents)
 ## Property Attributes
 
 Property attributes should be explicitly listed, and will help new programmers when reading the code.  The order of properties should be atomicity then storage if needed then readonly then getter then setter then nullability.
@@ -476,6 +480,7 @@ Why? Even if you declared a property as `NSString` somebody might pass in an ins
 @property (nonatomic, strong) NSString *tutorialName;
 ```
 
+[Back to Table of Contents ](#table-of-contents)
 ## Dot-Notation Syntax
 
 Dot syntax is purely a convenient wrapper around accessor method calls. When you use dot syntax, the property is still accessed or changed using getter and setter methods.  Read more [here](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html)
@@ -496,6 +501,7 @@ NSInteger arrayCount = self.array.count;
 UIApplication.sharedApplication.delegate;
 ```
 
+[Back to Table of Contents ](#table-of-contents)
 ## Literals
 
 `NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special care that `nil` values can not be passed into `NSArray` and `NSDictionary` literals, as this will cause a crash.
@@ -518,6 +524,7 @@ NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 ```
 
+[Back to Table of Contents ](#table-of-contents)
 ## Constants
 
 Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as `static` constants and not `#define`s unless explicitly being used as a macro.
@@ -538,6 +545,7 @@ static CGFloat const MPImageThumbnailHeight = 50.0;
 #define thumbnailHeight 50.0
 ```
 
+[Back to Table of Contents ](#table-of-contents)
 ## Enumerated Types
 
 When using `enum`s, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types: `NS_ENUM()`
@@ -574,7 +582,7 @@ enum GlobalConstants {
 };
 ```
 
-
+[Back to Table of Contents ](#table-of-contents)
 ## Case Statements
 
 Braces are not required for case statements, unless other case's contains braces.
@@ -636,7 +644,7 @@ switch (menuType) {
 }
 ```
 
-
+[Back to Table of Contents ](#table-of-contents)
 ## Private Properties
 
 Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `MPPrivate` or `private`) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.
@@ -653,6 +661,7 @@ Private properties should be declared in class extensions (anonymous categories)
 @end
 ```
 
+[Back to Table of Contents ](#table-of-contents)
 ## Booleans
 
 Objective-C uses `YES` and `NO`.  Therefore `true` and `false` should only be used for CoreFoundation, C or C++ code.  Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Never compare something directly to `YES`, because `YES` is defined to 1 and a `BOOL` can be up to 8 bits.
@@ -682,6 +691,7 @@ If the name of a `BOOL` property is expressed as an adjective, the property can 
 ```
 Text and example taken from the [Cocoa Naming Guidelines](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
 
+[Back to Table of Contents ](#table-of-contents)
 ## Conditionals
 
 Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
@@ -725,6 +735,7 @@ result = isHorizontal ? x : y;
 result = a > b ? x = c > d ? c : d : y;
 ```
 
+[Back to Table of Contents ](#table-of-contents)
 ## Init Methods
 
 Init methods should follow the convention provided by Apple's generated code template.  A return type of 'instancetype' should also be used instead of 'id'.
@@ -742,6 +753,7 @@ Init methods should follow the convention provided by Apple's generated code tem
 
 See [Class Constructor Methods](#class-constructor-methods) for link to article on instancetype.
 
+[Back to Table of Contents ](#table-of-contents)
 ## Class Constructor Methods
 
 Where class constructor methods are used, these should always return type of 'instancetype' and never 'id'. This ensures the compiler correctly infers the result type. 
@@ -754,6 +766,7 @@ Where class constructor methods are used, these should always return type of 'in
 
 More information on instancetype can be found on [NSHipster.com](http://nshipster.com/instancetype/).
 
+[Back to Table of Contents ](#table-of-contents)
 ## CGRect Functions
 
 When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) instead of direct struct member access. From Apple's `CGGeometry` reference:
@@ -784,6 +797,7 @@ CGFloat height = frame.size.height;
 CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 ```
 
+[Back to Table of Contents ](#table-of-contents)
 ## Golden Path
 
 When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path.  That is, don't nest `if` statements.  Multiple return statements are OK.
@@ -810,6 +824,7 @@ When coding with conditionals, the left hand margin of the code should be the "g
 }
 ```
 
+[Back to Table of Contents ](#table-of-contents)
 ## Error handling
 
 When methods return an error parameter by reference, switch on the returned value, not the error variable.
@@ -833,7 +848,7 @@ if (error) {
 
 Some of Apple’s APIs write garbage values to the error parameter (if non-NULL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).
 
-
+[Back to Table of Contents ](#table-of-contents)
 ## Singletons
 
 Singleton objects should use a thread-safe pattern for creating their shared instance.
@@ -851,7 +866,7 @@ Singleton objects should use a thread-safe pattern for creating their shared ins
 ```
 This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
-
+[Back to Table of Contents ](#table-of-contents)
 ## Line Breaks
 
 Line breaks are an important topic since this style guide is focused for print and online readability.
@@ -866,6 +881,7 @@ self.productsRequest = [[SKProductsRequest alloc]
 	initWithProductIdentifiers:productIdentifiers];
 ```
 
+[Back to Table of Contents ](#table-of-contents)
 ## Xcode project
 
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
