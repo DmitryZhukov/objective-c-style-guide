@@ -2,7 +2,7 @@
 
 ### Table of Contents
 
-* [Общее](#общее)
+* [Общее](#Общее)
 * [Example](#example)
 * [Language](#language)
 * [Code Organization](#code-organization)
@@ -12,19 +12,19 @@
 * [Underscores](#underscores)
 * [Methods](#methods)
 * [Variables](#variables)
-* [? Property Attributes](#property-attributes)
-* [? Dot-Notation Syntax](#dot-notation-syntax)
+* [Property Attributes](#property-attributes)
+* [Dot-Notation Syntax](#dot-notation-syntax)
 * [Literals](#literals)
 * [Constants](#constants)
 * [Enumerated Types](#enumerated-types)
 * [Case Statements](#case-statements)
 * [Private Properties](#private-properties)
-* [? Booleans](#booleans)
+* [Booleans](#booleans)
 * [Conditionals](#conditionals)
 * [Ternary Operator](#ternary-operator)
 * [Init Methods](#init-methods)
 * [Class Constructor Methods](#class-constructor-methods)
-* [? CGRect Functions](#cgrect-functions)
+* [CGRect Functions](#cgrect-functions)
 * [Golden Path](#golden-path)
 * [Error handling](#error-handling)
 * [Singletons](#singletons)
@@ -490,14 +490,14 @@ Dot-notation should **always** be used for accessing and mutating properties, as
 
 **Preferred:**
 ```objectivec
-NSInteger arrayCount = [self.array count];
+NSInteger arrayCount = self.array.count;
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
 ```
 
 **Not Preferred:**
 ```objectivec
-NSInteger arrayCount = self.array.count;
+NSInteger arrayCount = [self.array count];
 [view setBackgroundColor:[UIColor orangeColor]];
 UIApplication.sharedApplication.delegate;
 ```
@@ -796,6 +796,7 @@ CGFloat y = frame.origin.y;
 CGFloat width = frame.size.width;
 CGFloat height = frame.size.height;
 CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
+CGRect frame = CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
 ```
 
 [Back to Table of Contents ](#table-of-contents)
