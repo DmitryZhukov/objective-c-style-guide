@@ -2,7 +2,7 @@
 
 ### Table of Contents
 
-* [Общее](#Общее)
+* [Общее](#oбщее)
 * [Example](#example)
 * [Language](#language)
 * [Code Organization](#code-organization)
@@ -28,11 +28,11 @@
 * [Golden Path](#golden-path)
 * [Error handling](#error-handling)
 * [Singletons](#singletons)
-* [? Line Breaks](#line-breaks)
+* [Line Breaks](#line-breaks)
 * [Xcode Project](#xcode-project)
 
 
-## Общее
+## Oбщее
 
 * В коде не допускается оставлять закомментированный код. Если данный код, возможно, потребуется в будущем, можно закоммитить его, а следующим коммитом удалить. 
 * Ошибки должны передаваться через объект **NSError**. Атрибут словаря **localizedDescription** должен быть заполнен, так как текст для сообщения пользователю должен получаться из этого атрибута.
