@@ -48,6 +48,7 @@
 * Файлы исходного кода должны быть разделены логически по физическим папкам в проекте. Позволит разобрать свалку исходников, при необходимости можно будет легко брать куски логики и, например, использовать в другом проекте. По возможности текущие исходники разделять по логике.
 * В коде не допустимо использование прямого использования названия идентификатора ячейки, контроллера, перехода и тд. Даже если оно используется один раз. (static const *)
 * Использование макросов необходимо объединять в одном месте, не разбрасывать по функциям. Лучше объявить все константы в одном define в начале кода, чем в каждом методе. С осторожностью (по возможности вообще не использовать) вложенные define, особенно, когда ветвится большой кусок кода.
+* UI нового функционала нужно разбивать на отдельные сториборды, связи между сторибордами организовывать при помощи Storyboard References.
 
 [Back to Table of Contents ](#table-of-contents)
 ## Example 
@@ -855,9 +856,9 @@ Some of Apple’s APIs write garbage values to the error parameter (if non-NULL)
 
 Singleton objects should use a thread-safe pattern for creating their shared instance.
 ```objectivec
-+ (instancetype)sharedInstance {
++ (instancetype)sharedInstance 
+{
   static id sharedInstance = nil;
-
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     sharedInstance = [[self alloc] init];
